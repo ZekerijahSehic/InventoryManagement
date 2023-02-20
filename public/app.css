@@ -1,0 +1,146 @@
+body {
+    background: #F3F4F6;
+    padding: 10px 50px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin-bottom: 20px;
+}
+.header-search {
+    width: 50%;
+}
+.header-menu {
+    width: 50%;
+    display: inline-flex;
+    justify-content: end;
+    margin: 5px;
+}
+.btn {
+    height: 100%;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #FFFFFF;
+    margin: 0 5px;
+}
+.btn-small {
+    border: 1px solid transparent;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+.btn-search {
+    background: #e67e22;
+}
+.btn-add {
+    background: #2ecc71;
+}
+.btn-edit {
+    background: #2980b9;
+}
+.btn-delete {
+    background: #e74c3c;
+    color: #FFFFFF;
+}
+.btn-manage {
+    background: #9b59b6;
+}
+.btn-out {
+    background: #e74c3c;
+    height: 40px;
+}
+.btn-full {
+    width: 100%;
+    height: 40px;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+.btn-height {
+    height: 40px;
+    margin-top: 5px;
+}
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.product-box {
+    background: #FFFFFF;
+    display: inline-flex;
+    margin: 5px;
+    padding: 10px 25px;
+    border-radius: 10px;
+    width: 29%;
+}
+.product-box span {
+    font-weight: 600;
+    font-size: 14px;
+}
+.product-title {
+    color: #303643;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.create-form {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.create-group {
+    margin-bottom: 20px;
+}
+
+.table-actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.text-danger {
+    color: #ff0000;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+table.table {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+table.table th, table.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+table.table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+
+
