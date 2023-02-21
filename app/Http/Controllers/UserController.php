@@ -28,18 +28,18 @@ class UserController extends Controller {
         return redirect('/users')->with('success', 'User created successfully');
     }
 
-    public function edit($id) {
+    public function edit(int $id) {
         $roles = $this->roleRepository->fetchAll();
         $user = $this->userRepository->find($id);
         return view('admin.users.edit', compact('user', 'roles'));
     }
 
-    public function update(UpdateUserRequest $request, $id) {
+    public function update(UpdateUserRequest $request, int $id) {
         $this->userRepository->updateUser($id, $request);
         return redirect('/users')->with('success', 'User updated successfully');
     }
 
-    public function destroy($id) {
+    public function destroy(int $id) {
         $this->userRepository->deleteUser($id);
         return redirect('/users');
     }

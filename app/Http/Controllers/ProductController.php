@@ -38,18 +38,18 @@ class ProductController extends Controller {
         return redirect('/products')->with('success', 'Product created successfully');
     }
 
-    public function edit($id) {
+    public function edit(int $id) {
         $product = $this->productRepository->find($id);
         $categories = Category::all();
         return view('products.edit', compact('product', 'categories'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $this->productRepository->updateProduct($id, $request);
         return redirect('/products')->with('success', 'Product updated successfully');
     }
 
-    public function destroy($id) {
+    public function destroy(int $id) {
         $this->productRepository->deleteProduct($id);
         return redirect('/products')->with('success', 'Product deleted successfully');
     }

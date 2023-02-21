@@ -24,17 +24,17 @@ class PermissionController extends Controller {
         return redirect('/permissions')->with('success', 'Permission created successfully');
     }
 
-    public function edit($id) {
+    public function edit(int $id) {
         $permission = $this->permissionRepository->find($id);
         return view('admin.permissions.edit', compact('permission'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $this->permissionRepository->updatePermission($id, $request);
         return redirect('/permissions')->with('success', 'Permission updated successfully');
     }
 
-    public function destroy($id) {
+    public function destroy(int $id) {
         $this->permissionRepository->deletePermission($id);
         return redirect('/permissions');
     }

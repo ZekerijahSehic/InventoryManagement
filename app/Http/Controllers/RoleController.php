@@ -29,7 +29,7 @@ class RoleController extends Controller {
         return redirect('/roles')->with('success', 'Role created successfully');
     }
 
-    public function edit($id) {
+    public function edit(int $id) {
         $role = $this->roleRepository->find($id);
         $permissions = $this->permissionRepository->fetchAll();
         $currentPermissions = $role->permissions()->get()->pluck('id')->toArray();
@@ -37,12 +37,12 @@ class RoleController extends Controller {
         return view('admin.roles.edit', compact(['role', 'currentPermissions', 'permissions']));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, int $id) {
         $this->roleRepository->updateRole($id, $request);
         return redirect('/roles')->with('success', 'User updated successfully');
     }
 
-    public function destroy($id) {
+    public function destroy(int $id) {
         $this->roleRepository->deleteRole($id);
         return redirect('/roles');
     }

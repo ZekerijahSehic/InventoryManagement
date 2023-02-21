@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Repositories;
+
 use App\Models\Role;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class RoleRepository extends BaseRepository {
 
@@ -11,15 +14,15 @@ class RoleRepository extends BaseRepository {
         parent::__construct($model);
     }
 
-    public function getAll() {
+    public function getAll() : Collection {
         return $this->fetchAll();
     }
 
-    public function find(int $id) {
+    public function find(int $id) : Role {
         return $this->findById($id);
     }
 
-    public function createRole($data) {
+    public function createRole(array $data) : Role {
         $role = new Role($data);
         $role->save();
 
@@ -29,7 +32,7 @@ class RoleRepository extends BaseRepository {
         return $role;
     }
 
-    public function updateRole(int $id, $request) {
+    public function updateRole(int $id, Request $request) : Role {
         $role = $this->find($id);
         $role->update($request->all());
         $permissions = $request->input('permissions', []);
@@ -44,7 +47,7 @@ class RoleRepository extends BaseRepository {
         return $role;
     }
 
-    public function deleteRole(int $id) {
+    public function deleteRole(int $id) : bool {
         return $this->delete($id);
     }
 }
