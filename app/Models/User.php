@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 
-class User extends Authenticatable
-{
+class User extends Authenticatable {
+
     use HasApiTokens, HasFactory, Notifiable, HasPermissions;
 
     /**
@@ -45,8 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    protected function password(): Attribute
-    {
+
+    protected function password(): Attribute {
         return Attribute::make(set: fn ($value) => Hash::make($value));
     }
 }

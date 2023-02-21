@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-class LoginController extends Controller
-{
-    public function create()
-    {
+class LoginController extends Controller {
+
+    public function create() {
         return view('login.login');
     }
-    public function store(Request $request)
-    {
+
+    public function store(Request $request) {
         $credentials = $request->validate([
             'email' => 'required',
             'password' => 'required'
@@ -19,15 +18,13 @@ class LoginController extends Controller
 
         $user = User::where('email', $credentials['email'])->first();
 
-        if (!$user)
-        {
+        if (!$user) {
             return back()->withErrors([
                 'email' => 'Email not registered.'
             ]);
         }
 
-        if (auth()->attempt($credentials))
-        {
+        if (auth()->attempt($credentials)) {
             return redirect('/products')->with('success', 'Welcome');
         }
 
@@ -36,8 +33,7 @@ class LoginController extends Controller
         ]);
     }
 
-    public function destroy()
-    {
+    public function destroy() {
         auth()->logout();
         return redirect('/');
     }

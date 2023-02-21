@@ -5,14 +5,14 @@ namespace App\Providers;
 use App\Models\Permission;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-class PermissionsServiceProvider extends ServiceProvider
-{
-    public function register()
-    {
+
+class PermissionsServiceProvider extends ServiceProvider {
+
+    public function register() {
         //
     }
-    public function boot()
-    {
+
+    public function boot() {
         try {
             Permission::get()->map(function ($permission) {
                 Gate::define($permission->name, function ($user) use ($permission) {
@@ -23,6 +23,5 @@ class PermissionsServiceProvider extends ServiceProvider
             report($e);
             return false;
         }
-
     }
 }

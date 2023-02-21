@@ -6,8 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RoleMiddleware
-{
+class RoleMiddleware {
     /**
      * Handle an incoming request.
      *
@@ -16,11 +15,10 @@ class RoleMiddleware
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
 
-    public function handle(Request $request, Closure $next)
-    {
+    public function handle(Request $request, Closure $next) {
         $user = Auth::user();
 
-        if($user){
+        if($user) {
             if ($user->can('all_pages')) {
                 return $next($request);
             } elseif ($user->can('except_user')) {
@@ -29,8 +27,8 @@ class RoleMiddleware
                 } else {
                     return redirect()->back();
                 }
-            } elseif ($user->can('home_only')){
-                if($request->is('products')){
+            } elseif ($user->can('home_only')) {
+                if ($request->is('products')) {
                     return $next($request);
                 } else {
                     return redirect('/');
