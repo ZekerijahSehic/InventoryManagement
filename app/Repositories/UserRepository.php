@@ -23,7 +23,7 @@ class UserRepository extends BaseRepository
         return $this->findById($id);
     }
 
-    public function createUser($data)
+    public function createUser($data) : User
     {
         $roleId = $data['role_id'];
         $user = $this->create($data);
