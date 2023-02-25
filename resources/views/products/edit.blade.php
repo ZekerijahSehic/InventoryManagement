@@ -19,6 +19,13 @@
         <input type="text" name="price" id="price" class="form-control" value="{{ $product->price }}">
     </div>
     <div class="create-group">
+        <label for="quantity">Quantity</label>
+        @if($errors->has('quantity'))
+            <p class="text-danger">{{ $errors->first('quantity') }}</p>
+        @endif
+        <input type="text" name="quantity" id="quantity" class="form-control" value="{{ $product->quantity }}">
+    </div>
+    <div class="create-group">
         <label for="description">Description</label>
         @if($errors->has('description'))
             <p class="text-danger">{{ $errors->first('description') }}</p>

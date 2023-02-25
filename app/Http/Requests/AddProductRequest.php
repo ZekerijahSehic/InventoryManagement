@@ -27,6 +27,7 @@ class AddProductRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'regex:/^[a-zA-Z0-9\s]+$/', 'max:32'],
             'description' => ['required', 'max: 255'],
+            'quantity' => ['required', 'numeric'],
             'price' => ['required', 'numeric'],
             'category_id' => ['required', Rule::exists('categories', 'id')]
         ];

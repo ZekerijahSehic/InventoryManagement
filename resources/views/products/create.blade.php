@@ -13,6 +13,13 @@
         <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control">
     </div>
     <div class="create-group">
+        <label for="name">Quantity</label>
+        @if($errors->has('quantity'))
+            <p class="text-danger">{{ $errors->first('quantity') }}</p>
+        @endif
+        <input type="text" name="quantity" id="quantity" value="{{ old('quantity') }}" class="form-control">
+    </div>
+    <div class="create-group">
         <label for="price">Price</label>
         @if($errors->has('price'))
             <p class="text-danger">{{ $errors->first('price') }}</p>
